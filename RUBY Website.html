@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ruby Cheats</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:#050505;
+}
+
+.background{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:0;
+}
+
+.circle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,0,0,0.18);
+    animation:float 8s infinite ease-in-out;
+    filter:blur(5px);
+}
+
+.circle:nth-child(1){
+    width:250px;
+    height:250px;
+    top:10%;
+    left:8%;
+}
+
+.circle:nth-child(2){
+    width:350px;
+    height:350px;
+    bottom:5%;
+    right:10%;
+    animation-delay:2s;
+}
+
+.circle:nth-child(3){
+    width:180px;
+    height:180px;
+    bottom:20%;
+    left:20%;
+    animation-delay:4s;
+}
+
+@keyframes float{
+    0%{transform:translateY(0px) scale(1);}
+    50%{transform:translateY(-30px) scale(1.08);}
+    100%{transform:translateY(0px) scale(1);}
+}
+
+.container{
+    position:relative;
+    width:420px;
+    padding:40px;
+    border-radius:25px;
+    background:rgba(10,10,10,0.92);
+    border:1px solid rgba(255,0,0,0.35);
+    box-shadow:
+        0 0 25px rgba(255,0,0,0.4),
+        inset 0 0 15px rgba(255,0,0,0.15);
+    backdrop-filter:blur(15px);
+    z-index:1;
+    animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.logo{
+    text-align:center;
+    font-size:42px;
+    font-weight:700;
+    color:#ff1a1a;
+    text-shadow:0 0 15px rgba(255,0,0,0.7);
+    margin-bottom:5px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#aaa;
+    font-size:13px;
+    margin-bottom:35px;
+}
+
+.input-box{
+    position:relative;
+    margin-bottom:25px;
+}
+
+.input-box input{
+    width:100%;
+    padding:16px 18px;
+    border:none;
+    outline:none;
+    border-radius:14px;
+    background:#111;
+    color:#fff;
+    font-size:15px;
+    border:1px solid rgba(255,0,0,0.3);
+    transition:0.3s;
+}
+
+.input-box input:focus{
+    border-color:#ff1a1a;
+    box-shadow:0 0 15px rgba(255,0,0,0.45);
+}
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:14px;
+    background:linear-gradient(135deg,#ff0000,#7a0000);
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 0 20px rgba(255,0,0,0.4);
+}
+
+button:hover{
+    transform:translateY(-3px) scale(1.02);
+    box-shadow:0 0 30px rgba(255,0,0,0.65);
+}
+
+.status{
+    margin-top:18px;
+    text-align:center;
+    font-size:14px;
+    font-weight:500;
+    min-height:20px;
+}
+
+.correct{
+    color:#00ff88;
+    text-shadow:0 0 10px rgba(0,255,136,0.5);
+}
+
+.incorrect{
+    color:#ff4d4d;
+    text-shadow:0 0 10px rgba(255,77,77,0.5);
+}
+
+.confirm-box{
+    display:none;
+    margin-top:20px;
+    animation:fadeIn 0.5s ease;
+}
+
+.footer{
+    text-align:center;
+    color:#666;
+    margin-top:25px;
+    font-size:12px;
+}
+
+.glow-line{
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:2px;
+    background:linear-gradient(90deg,transparent,#ff0000,transparent);
+    animation:lineMove 4s linear infinite;
+}
+
+@keyframes lineMove{
+    0%{left:-100%;}
+    100%{left:100%;}
+}
+
+@media(max-width:500px){
+    .container{
+        width:92%;
+        padding:30px 22px;
+    }
+
+    .logo{
+        font-size:34px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="background">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+</div>
+
+<div class="container">
+    <div class="glow-line"></div>
+
+    <div class="logo">RUBY Cheats</div>
+    <div class="subtitle">Best Free Fire Max And Roblox Hacker</div>
+
+    <div class="input-box">
+        <input type="password" id="keyInput" placeholder="Enter Access Key">
+    </div>
+
+    <button onclick="checkKey()">Verify Key</button>
+
+    <div class="status" id="status"></div>
+
+    <div class="confirm-box" id="confirmBox">
+        <button onclick="redirectNow()">Continue</button>
+    </div>
+
+    <div class="footer">
+        Powered By RUBYGameingOP
+    </div>
+</div>
+
+<script>
+const validKey = "RUBY-Cheats:srvskwj2iehz#1913";
+
+function checkKey(){
+    const input = document.getElementById("keyInput").value;
+    const status = document.getElementById("status");
+    const confirmBox = document.getElementById("confirmBox");
+
+    if(input === validKey){
+        status.innerHTML = "✔ Correct Key Successfully Verified";
+        status.className = "status correct";
+        confirmBox.style.display = "block";
+    }else{
+        status.innerHTML = "✖ Incorrect Key";
+        status.className = "status incorrect";
+        confirmBox.style.display = "none";
+    }
+}
+
+function redirectNow(){
+    window.location.href = "https://raw.githubusercontent.com/RUBYGameingOP/Roblox-Script-/refs/heads/main/ScriptByRUBYGameingOP.lua";
+}
+</script>
+
+</body>
+</html>
+                               
