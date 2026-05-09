@@ -98,6 +98,8 @@ const validKeys = [
     "RUBY-Cheats:v7mzl29x@1913"
 ];
 
+const unlimitedKey = "RUBY-Cheats:MASTER-UNLIMITED@1913";
+
 function getUserIP(){
     return localStorage.getItem("ruby_user_ip") || generateFakeIP();
 }
@@ -116,6 +118,13 @@ function checkKey(){
     const userIP = getUserIP();
 
     const alreadyUsed = usedKeys.find(k => k.key === input);
+
+    if(input === unlimitedKey){
+        status.innerHTML = "✔ Master key Accepted";
+        status.className = "status correct";
+        confirmBox.style.display = "block";
+        return;
+    }
 
     if(validKeys.includes(input)){
 
